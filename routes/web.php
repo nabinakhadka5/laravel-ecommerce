@@ -41,6 +41,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','admin']],function(){
     Route::resource('category','CategoryController');
     Route::resource('product','ProductController');
     Route::resource('page','PageController');
+    Route::resource('post','PostController');
 });
 
 Route::group(['prefix'=>'customer','middleware'=>['auth','customer']],function(){
@@ -52,4 +53,6 @@ Route::group(['prefix'=>'seller','middleware'=>['auth','seller']],function(){
     Route::get('/','HomeController@seller')->name('seller');
 
 });
+
+
 

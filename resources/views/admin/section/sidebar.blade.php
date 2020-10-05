@@ -109,6 +109,20 @@
 
                 </ul>
             </li>
+            <li>
+                <a href="javascript:;"><i class="sidebar-item-icon fa fa-images"></i>
+                    <span class="nav-label">Post Manager</span><i class="fa fa-angle-left arrow"></i></a>
+                <ul class="nav-2-level collapse">
+                    <li>
+                        <a href="{{ route('post.create')}}">Add post</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('post.index') }}">List post
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
         </ul>
     </div>
 </nav>

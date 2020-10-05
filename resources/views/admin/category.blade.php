@@ -34,27 +34,25 @@
                                     <tr>
                                         <td>{{ $data_indiv->title }}
                                             @if($data_indiv->child_cats->count()>0)
+                                            <ol>
+                                            @foreach($data_indiv->child_cats as $child_cats)
+                                            <li>
 
-                                                <ol>
-                                                    @foreach($data_indiv->child_cats as $child_cats)
-                                                        <li>
-
-                                                            <div class="row">
-
-                                                                <a href="{{ route('category.edit',$data_indiv->id) }}">
-                                                                    <small>{{$child_cats->title}}</small>
-                                                                </a>
-                                                                {{Form::open(['url'=>route('category.destroy',$child_cats->id),'class'=>'float-right','onsubmit'=>'return confirm("Are You sure you want to delete this Category")'])}}
-                                                                @method('delete')
-                                                                {{Form::button('<i class="fa fa-trash"></i>',['class'=>'btn btn-link','type'=>'submit','style'=>'margin-top: -6px;'])}}
-                                                                {{Form::close()}}
-                                                            </div>
-                                                        </li>
-                                                    @endforeach
-                                                </ol>
-                                            @endif
-                                        </td>
-                                        <td>
+                                            <div class="row">
+                                                <a href="{{ route('category.edit',$data_indiv->id) }}">
+                                                    <small>{{$child_cats->title}}</small>
+                                                </a>
+                                                {{Form::open(['url'=>route('category.destroy',$child_cats->id),'class'=>'float-right','onsubmit'=>'return confirm("Are You sure you want to delete this Category")'])}}
+                                                @method('delete')
+                                                {{Form::button('<i class="fa fa-trash"></i>',['class'=>'btn btn-link','type'=>'submit','style'=>'margin-top: -6px;'])}}
+                                                {{Form::close()}}
+                                            </div>
+                                            </li>
+                                            @endforeach
+                                        </ol>
+                                        @endif
+                                    </td>
+                                 <td>
                                             {{ $data_indiv->summary }}
                                         </td>
 
@@ -80,8 +78,6 @@
                                     </tr>
                                 @endforeach
                             @endif
-
-
                             </tbody>
                         </table>
                     </div>
